@@ -6,23 +6,35 @@
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:27:44 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/14 15:43:40 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/11/16 15:37:56 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
+#include "mlx/mlx.h"
+#include "Libft/libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <unistd.h>
 
-typedef struct s_data
+#define ROJO_T			"\x1b[31m"
+#define RESET_COLOR		"\x1b[0m"
+#define BUFFER_SIZE		1000
+#define EXTENSION		".ber"
+
+typedef struct s_game
 {
-	void *img;
-	char *addr;
-	int bits_per_pixel;
-	int line_length;
-	int endian;
-} t_data;
+	int coins;
+	int exits;
+	int person;
+	char *map;
+	char **map_array;
+	size_t map_x_len;
+	size_t map_y_len;
+	size_t x;
+	size_t y;
+	
+} t_game;
 
 typedef struct	s_vars {
 	void	*mlx;
