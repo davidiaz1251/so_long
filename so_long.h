@@ -6,7 +6,7 @@
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:27:44 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/16 15:37:56 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/11/21 11:40:03 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ typedef struct s_game
 	int person;
 	char *map;
 	char **map_array;
+	char **map_copy;
 	size_t map_x_len;
 	size_t map_y_len;
+	size_t p_y;
+	size_t p_x;
 	size_t x;
 	size_t y;
 	

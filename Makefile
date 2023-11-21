@@ -1,4 +1,4 @@
-NAME = a.out
+NAME = so_long
 SOURCE = so_long.c 
 OBJ = $(SOURCE:.c=.o)
 LIBFT = libft.a
