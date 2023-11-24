@@ -1,5 +1,10 @@
 NAME = so_long
-SOURCE = so_long.c 
+SOURCE =	so_long.c	\
+			init.c		\
+			screen.c	\
+			print_map.c	\
+			movements.c
+
 OBJ = $(SOURCE:.c=.o)
 LIBFT = libft.a
 
@@ -14,6 +19,10 @@ $(NAME): $(OBJ) $(LIBFT)
 
 $(LIBFT) : 
 	@make -C ./Libft/
+
+r:
+	./$(NAME) map.ber
+
 clean:
 	rm -f $(OBJ)
 
@@ -21,3 +30,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: fclean re clean r 
