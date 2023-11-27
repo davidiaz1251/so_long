@@ -6,7 +6,7 @@
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:14:52 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/27 14:11:00 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/11/27 15:03:16 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@ void	move_left(t_vars *vars)
 	{
 		if (position == 'C')
 			vars->game->colle++;
-		if (position == 'E' && collected(vars))
-			ft_close(vars);
+		if (position == 'E')
+		{
+			if (collected(vars))
+				ft_close(vars);
+			else
+				return ;
+		}
 		if (position == 'M')
 			ft_close(vars);
 		vars->game->map_array[vars->game->p_y][vars->game->p_x] = '0';
@@ -45,8 +50,13 @@ void	move_right(t_vars *vars)
 	{
 		if (position == 'C')
 			vars->game->colle++;
-		if (position == 'E' && collected(vars))
-			ft_close(vars);
+		if (position == 'E')
+		{
+			if (collected(vars))
+				ft_close(vars);
+			else
+				return ;
+		}
 		if (position == 'M')
 			ft_close(vars);
 		vars->game->map_array[vars->game->p_y][vars->game->p_x] = '0';
@@ -69,8 +79,13 @@ void	move_top(t_vars *vars)
 	{
 		if (position == 'C')
 			vars->game->colle++;
-		if (position == 'E' && collected(vars))
-			ft_close(vars);
+		if (position == 'E')
+		{
+			if (collected(vars))
+				ft_close(vars);
+			else
+				return ;
+		}
 		if (position == 'M')
 			ft_close(vars);
 		vars->game->map_array[vars->game->p_y][vars->game->p_x] = '0';
@@ -93,8 +108,13 @@ void	move_bottom(t_vars *vars)
 	{
 		if (position == 'C')
 			vars->game->colle++;
-		if (position == 'E' && collected(vars))
-			ft_close(vars);
+		if (position == 'E')
+		{
+			if (collected(vars))
+				ft_close(vars);
+			else
+				return ;
+		}
 		if (position == 'M')
 			ft_close(vars);
 		vars->game->map_array[vars->game->p_y][vars->game->p_x] = '0';

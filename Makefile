@@ -1,4 +1,5 @@
 NAME = so_long
+BNAME = bonus/so_long_bonus
 SOURCE =	so_long.c		\
 			init.c			\
 			screen.c		\
@@ -36,7 +37,7 @@ $(LIBFT) :
 	@make -C ./Libft/
 
 bonus: $(BOBJ) $(LIBFT) mlx/libmlx.a
-	@$(CC) $(BOBJ) -Lmlx -lmlx -LLibft -lft -framework OpenGL -framework AppKit -o bonus/so_long_bonus
+	@$(CC) $(BOBJ) -Lmlx -lmlx -LLibft -lft -framework OpenGL -framework AppKit -o $(BNAME)
 
 %.o: %.c
 	@$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
@@ -44,7 +45,7 @@ run:
 	./$(NAME) maps/map.ber
 
 runb:
-	./bonus/so_long_bonus maps/map_bonus.ber
+	./$(BNAME) maps/map_bonus.ber
 
 clean:
 	@rm -f $(OBJ)
@@ -54,6 +55,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BNAME)
 	make -C Libft/ fclean
 
 re: fclean all
