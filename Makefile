@@ -27,7 +27,7 @@ all : $(NAME)
 	@echo "\x1b[32m Compilacion OK"
 
 $(NAME): $(OBJ) $(LIBFT) mlx/libmlx.a
-	@$(CC) $(OBJ) -Lmlx -lmlx -LLibft -lft -framework OpenGL -framework AppKit -o $(NAME)
+	@$(CC) $(OBJ) -Lmlx -lmlx -LLibft -lft -framework OpenGL -framework AppKit -o so_long_bonus
 
 mlx/libmlx.a:
 	make -C mlx/
@@ -44,7 +44,7 @@ run:
 	./$(NAME) maps/map.ber
 
 runb:
-	./$(NAME) maps/map_bonus.ber
+	./bonus/so_long_bonus maps/map_bonus.ber
 
 clean:
 	@rm -f $(OBJ)
