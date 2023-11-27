@@ -27,7 +27,7 @@ all : $(NAME)
 	@echo "\x1b[32m Compilacion OK"
 
 $(NAME): $(OBJ) $(LIBFT) mlx/libmlx.a
-	@$(CC) $(OBJ) -Lmlx -lmlx -LLibft -lft -framework OpenGL -framework AppKit -o so_long_bonus
+	@$(CC) $(OBJ) -Lmlx -lmlx -LLibft -lft -framework OpenGL -framework AppKit -o $(NAME)
 
 mlx/libmlx.a:
 	make -C mlx/
@@ -36,7 +36,7 @@ $(LIBFT) :
 	@make -C ./Libft/
 
 bonus: $(BOBJ) $(LIBFT) mlx/libmlx.a
-	@$(CC) $(BOBJ) -Lmlx -lmlx -LLibft -lft -framework OpenGL -framework AppKit -o $(NAME)
+	@$(CC) $(BOBJ) -Lmlx -lmlx -LLibft -lft -framework OpenGL -framework AppKit -o so_long_bonus
 
 %.o: %.c
 	@$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
