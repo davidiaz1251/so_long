@@ -9,7 +9,18 @@ SOURCE =	so_long.c		\
 			open_image.c	\
 			exit.c
 
+BSOURCE =	bonus/so_long_bonus.c		\
+			bonus/init_bonus.c		\
+			bonus/screen_bonus.c		\
+			bonus/print_map_bonus.c	\
+			bonus/movements_bonus.c	\
+			bonus/free_bonus.c		\
+			bonus/collected_bonus.c	\
+			bonus/open_image_bonus.c	\
+			bonus/exit_bonus.c
+
 OBJ = $(SOURCE:.c=.o)
+BOBJ = $(BSOURCE:.c=.o)
 LIBFT = libft.a
 
 all : $(NAME)
@@ -21,19 +32,25 @@ $(NAME): $(OBJ) $(LIBFT) mlx/libmlx.a
 mlx/libmlx.a:
 	make -C mlx/
 
-%.o: %.c
-	@$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
-
 $(LIBFT) : 
 	@make -C ./Libft/
 
+bonus: $(BOBJ) $(LIBFT) mlx/libmlx.a
+	@$(CC) $(BOBJ) -Lmlx -lmlx -LLibft -lft -framework OpenGL -framework AppKit -o $(NAME)
+
+%.o: %.c
+	@$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 run:
 	./$(NAME) maps/map.ber
 
+runb:
+	./$(NAME) maps/map_bonus.ber
+
 clean:
-	rm -f $(OBJ)
-	make -C mlx/ clean
-	make -C Libft/ clean
+	@rm -f $(OBJ)
+	@rm -f $(BOBJ)
+	@make -C mlx/ clean
+	@make -C Libft/ clean
 
 fclean: clean
 	rm -f $(NAME)
@@ -41,4 +58,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: fclean re clean r 
+.PHONY: fclean re clean run bonus 

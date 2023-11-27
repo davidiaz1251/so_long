@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:27:44 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/27 13:17:00 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/11/27 13:31:42 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "mlx/mlx.h"
-# include "Libft/libft.h"
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
+# include "../mlx/mlx.h"
+# include "../Libft/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -32,6 +32,7 @@
 # define ON_DESTROY		17
 # define MURO			"./textures/muro.xpm"
 # define CESPED			"./textures/cesped.xpm"
+# define ENEMY			"./textures/enemy.xpm"
 # define PER_B			"./textures/MarioB.xpm"
 # define PER_B1			"./textures/MarioB1.xpm"
 # define PER_L			"./textures/MarioL.xpm"
@@ -53,6 +54,7 @@ typedef struct s_game
 	int		steps;
 	int		exits;
 	int		person;
+	int		enemy;
 	int		img_width;
 	int		img_height;
 	int		frame;
