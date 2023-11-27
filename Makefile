@@ -36,7 +36,7 @@ $(LIBFT) :
 	@make -C ./Libft/
 
 bonus: $(BOBJ) $(LIBFT) mlx/libmlx.a
-	@$(CC) $(BOBJ) -Lmlx -lmlx -LLibft -lft -framework OpenGL -framework AppKit -o so_long_bonus
+	@$(CC) $(BOBJ) -Lmlx -lmlx -LLibft -lft -framework OpenGL -framework AppKit -o bonus/so_long_bonus
 
 %.o: %.c
 	@$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
