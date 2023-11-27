@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   screen.c                                           :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 10:31:46 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/27 11:51:54 by ldiaz-ra         ###   ########.fr       */
+/*   Created: 2023/11/24 13:06:06 by ldiaz-ra          #+#    #+#             */
+/*   Updated: 2023/11/27 11:07:28 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	get_screen(t_vars *vars, t_game *game)
+char	**free_matrix(char **memory)
 {
-	int	x;
-	int	y;
+	size_t	y;
 
-	x = game->map_x_len * WIDTH;
-	y = game->map_y_len * HEIGHT;
-	vars->game = game;
-	game->vars = vars;
-	vars->mlx = mlx_init();
-	vars->win = mlx_new_window(vars->mlx, x, y, "so_long");
+	y = 0;
+	while (memory[y])
+	{
+		free(memory[y]);
+		y++;
+	}
+	free(memory);
+	return (NULL);
 }

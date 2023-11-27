@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   screen.c                                           :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 10:31:46 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/27 11:51:54 by ldiaz-ra         ###   ########.fr       */
+/*   Created: 2023/11/27 11:58:27 by ldiaz-ra          #+#    #+#             */
+/*   Updated: 2023/11/27 11:58:57 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	get_screen(t_vars *vars, t_game *game)
+void	ft_error(char *error)
 {
-	int	x;
-	int	y;
+	ft_putstr_fd(ROJO_T "Error\n\t" RESET_COLOR, 1);
+	ft_putstr_fd(error, 1);
+	exit(1);
+}
 
-	x = game->map_x_len * WIDTH;
-	y = game->map_y_len * HEIGHT;
-	vars->game = game;
-	game->vars = vars;
-	vars->mlx = mlx_init();
-	vars->win = mlx_new_window(vars->mlx, x, y, "so_long");
+int	ft_close(t_vars *vars)
+{
+	mlx_destroy_window(vars->mlx, vars->win);
+	exit(0);
+	return (0);
 }
