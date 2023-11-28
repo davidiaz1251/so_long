@@ -6,7 +6,7 @@
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:33:27 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/27 11:50:36 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/11/28 13:21:40 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,5 @@ int	print_map(t_game *game)
 		}
 		game->x = -1;
 	}
-	print_count(game);
 	return (0);
 }

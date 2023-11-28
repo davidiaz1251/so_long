@@ -6,7 +6,7 @@
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:18:16 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/27 11:17:11 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/11/28 13:31:13 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 static void	check_muro(t_game *game)
 {
-	game->y = 0;
-	game->x = 0;
-	while (game->map_array[game->y])
+	game->y = -1;
+	game->x = -1;
+	while (game->map_array[++game->y])
 	{
-		while (game->map_array[game->y][game->x])
+		while (game->map_array[game->y][++game->x])
 		{
 			if ((game->y == 0 || game->y == game->map_y_len - 1) \
 			&& (game->map_array[game->y][game->x] != '1'))
@@ -32,10 +32,10 @@ static void	check_muro(t_game *game)
 				game->exits++;
 			else if (game->map_array[game->y][game->x] == 'P')
 				coor_person(game, game->y, game->x);
-			game->x++;
+			else if (game->map_array[game->y][game->x] == 'M')
+				ft_error("No puede haber enemigos");
 		}
-		game->x = 0;
-		game->y++;
+		game->x = -1;
 	}
 	if ((game->exits != 1) || (game->person != 1) || (game->coins < 1))
 		ft_error("Mapa Malo!!");
