@@ -6,7 +6,7 @@
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:18:16 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/27 14:21:50 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:30:21 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ static void	check_muro(t_game *game)
 				game->coins++;
 			else if (game->map_array[game->y][game->x] == 'E')
 				game->exits++;
-			else if (game->map_array[game->y][game->x] == 'M')
-				game->enemy++;
 			else if (game->map_array[game->y][game->x] == 'P')
 				coor_person(game, game->y, game->x);
+			else
+				check_char(game->map_array[game->y][game->x], game);
 		}
 		game->x = -1;
 	}

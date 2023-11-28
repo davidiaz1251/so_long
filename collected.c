@@ -6,7 +6,7 @@
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:23:35 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/27 11:17:22 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:16:47 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 int	collected(t_vars *vars)
 {
 	return (vars->game->coins == vars->game->colle);
+}
+
+void	check_char(char c)
+{
+	if (c == '1' || c == '0')
+		return ;
+	else
+		ft_error("caracteres desconocidos");
 }
 
 void	check_object(t_game *game)

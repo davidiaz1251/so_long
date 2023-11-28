@@ -6,7 +6,7 @@
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:18:16 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/28 13:31:13 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:29:42 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static void	check_muro(t_game *game)
 				game->exits++;
 			else if (game->map_array[game->y][game->x] == 'P')
 				coor_person(game, game->y, game->x);
-			else if (game->map_array[game->y][game->x] == 'M')
-				ft_error("No puede haber enemigos");
+			else
+				check_char(game->map_array[game->y][game->x]);
 		}
 		game->x = -1;
 	}

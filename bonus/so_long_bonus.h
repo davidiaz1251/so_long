@@ -6,7 +6,7 @@
 /*   By: ldiaz-ra <ldiaz-ra@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:27:44 by ldiaz-ra          #+#    #+#             */
-/*   Updated: 2023/11/27 13:31:42 by ldiaz-ra         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:31:10 by ldiaz-ra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	print_count(t_game *game);
 void	check_object(t_game *game);
 void	*image(t_game *game, char c);
 void	ft_error(char *error);
+void	check_char(char c, t_game *game);
 int		print_map(t_game *game);
 int		animation(t_game *game);
 int		collected(t_vars *vars);
